@@ -6,14 +6,27 @@
 #    By: arcarval <arcarval@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 23:15:46 by arcarval          #+#    #+#              #
-#    Updated: 2022/12/05 20:20:45 by arcarval         ###   ########.fr        #
+#    Updated: 2023/02/23 12:22:00 by arcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
+# Colors
+BLACK	=	\033[0;30m
+BLUE	=	\033[0;34m
+CYAN	=	\033[0;36m
+GREEN	=	\033[0;32m
+MAGENTA	=	\033[1;35m
+ORANGE	=	\033[1;38;5;214m
+RED		=	\033[0;31m
+RESET	=	\033[0;32;46m
+WHITE	=	\033[0;37m
+YELLOW	=	\033[0;33m
+
+# LIBFT
 NAME	=	libft.a
-
+HEADER	=	libft.h
 CC		=	cc
-
 CFLAGS	=	-Wall -Wextra -Werror
 
 SRCS	=	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	\
@@ -28,23 +41,25 @@ SRCS	=	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	\
 			ft_itoa.c		ft_striteri.c	ft_strmapi.c	\
 			ft_putchar_fd.c	ft_putstr_fd.c	ft_putendl_fd.c	ft_putnbr_fd.c	
 
-OBJS	=	$(SRCS:.c=.o)
+OBJS		=	$(SRCS:.c=.o)
 
-BONUS	=	ft_lstnew_bonus.c	ft_lstadd_front_bonus.c	ft_lstsize_bonus.c		\
-			ft_lstlast_bonus.c	ft_lstadd_back_bonus.c	ft_lstdelone_bonus.c	\
-			ft_lstclear_bonus.c	ft_lstiter_bonus.c		ft_lstmap_bonus.c
+BONUS		=	ft_lstnew_bonus.c	ft_lstadd_front_bonus.c	ft_lstsize_bonus.c		\
+				ft_lstlast_bonus.c	ft_lstadd_back_bonus.c	ft_lstdelone_bonus.c	\
+				ft_lstclear_bonus.c	ft_lstiter_bonus.c		ft_lstmap_bonus.c
 
 BONUS_OBJS	=	$(BONUS:.c=.o)
 
-AR		=	ar -rcs
+AR			=	ar -rcs
 
-RM		=	rm -f
+RM			=	rm -f
 
 .c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+			@echo "$(ORANGE) Compiling  ➟  $(BLUE)$< $(WHITE)"
+			@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME):	$(OBJS) libft.h
-			$(AR) $(NAME) $(OBJS)
+$(NAME):	$(OBJS) $(HEADER)
+			@echo "$(MAGENTA)\n $(NAME)  🗄️  🗃️  Archived ✓"
+			@$(AR) $(NAME) $(OBJS)
 
 all:		$(NAME)
 
@@ -52,10 +67,12 @@ bonus:		$(NAME) $(BONUS_OBJS)
 			$(AR) $(NAME) $(BONUS_OBJS)
 
 clean:
-			$(RM) $(OBJS) $(BONUS_OBJS)
+			@$(RM) $(OBJS) $(BONUS_OBJS)
+			@echo "$(CYAN) Bye Laziness, Bye dirt 🚿"
 
 fclean:		clean
-			$(RM) $(NAME) libft.so a.out
+			@$(RM) $(NAME) libft.so a.out
+			@echo "$(CYAN)  Bath is so good! \n  Now it's over. 🧼✨"
 
 re:			fclean all
 
