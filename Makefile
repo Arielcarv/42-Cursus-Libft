@@ -6,7 +6,7 @@
 #    By: arcarval <arcarval@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 23:15:46 by arcarval          #+#    #+#              #
-#    Updated: 2023/02/23 12:22:00 by arcarval         ###   ########.fr        #
+#    Updated: 2023/02/23 12:43:47 by arcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,11 +68,11 @@ bonus:		$(NAME) $(BONUS_OBJS)
 
 clean:
 			@$(RM) $(OBJS) $(BONUS_OBJS)
-			@echo "$(CYAN) Bye Laziness, Bye dirt 🚿"
+			@echo "$(CYAN) LIBFT - Bye Laziness, Bye dirt 🚿"
 
 fclean:		clean
 			@$(RM) $(NAME) libft.so a.out
-			@echo "$(CYAN)  Bath is so good! \n  Now it's over. 🧼✨"
+			@echo "$(CYAN) LIBFT - Bath is so good! \n  Now it's over. 🧼✨"
 
 re:			fclean all
 
