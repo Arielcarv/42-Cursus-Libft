@@ -6,7 +6,7 @@
 /*   By: arcarval <arcarval@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:27:59 by arcarval          #+#    #+#             */
-/*   Updated: 2022/11/29 00:48:21 by arcarval         ###   ########.fr       */
+/*   Updated: 2023/09/17 17:46:11 by arcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ void	*ft_calloc(size_t number_spaces, size_t size)
 {
 	void	*empty_str;
 
+	if (!number_spaces || !size)
+		return (ft_calloc(1, 1));
+	if (((number_spaces * size) / number_spaces) != size)
+		return (NULL);
 	empty_str = malloc(number_spaces * size);
 	if (empty_str != 0)
 	{
