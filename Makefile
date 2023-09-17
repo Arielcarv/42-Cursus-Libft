@@ -6,7 +6,7 @@
 #    By: arcarval <arcarval@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 23:15:46 by arcarval          #+#    #+#              #
-#    Updated: 2023/02/23 21:04:49 by arcarval         ###   ########.fr        #
+#    Updated: 2023/09/17 16:50:53 by arcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,8 @@ $(NAME):	$(OBJS) $(HEADER)
 all:		$(NAME)
 
 bonus:		$(NAME) $(BONUS_OBJS)
-			$(AR) $(NAME) $(BONUS_OBJS)
+			@$(AR) $(NAME) $(BONUS_OBJS)
+			@echo "$(MAGENTA)\n $(NAME) BONUS 🗄️  🗃️  Archived ✓$(RESET)"
 
 clean:
 			@$(RM) $(OBJS) $(BONUS_OBJS)
